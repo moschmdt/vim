@@ -1,4 +1,6 @@
-" This is the neovim condiguration file
+" This is the neovim configuration file
+
+
 
 call plug#begin()
 Plug 'morhetz/gruvbox'
@@ -9,7 +11,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 syntax on
@@ -21,13 +23,17 @@ colorscheme gruvbox
 let g:airline_theme='gruvbox'
 
 
-" NERDCommenter
-nmap <C-_> <Plug>NERDCommentorToggle
-vmap <C-_> <Plug>NERDCommentorToggle<CR>gv
+ "NERDCommenter
+nmap <C-k> <Plug>NERDCommenterToggle
+vmap <C-k> <Plug>NERDCommenterToggle<CR>gv
 
 
 " NERDTree
+
+let NERDTreeQuitOnOpen = 1
 nmap <F2> :NERDTreeToggle<CR>
+
+
 
 " This is the default option:
 " "   - Preview window on the right with 50% width
