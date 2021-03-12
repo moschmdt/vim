@@ -17,7 +17,7 @@ call plug#end()
 syntax on
 set number
 set encoding=utf-8
-
+set nowrapscan
 
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
