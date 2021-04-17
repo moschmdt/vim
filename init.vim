@@ -13,6 +13,7 @@ Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 call plug#end()
 
 syntax on
@@ -28,6 +29,8 @@ set shiftwidth=4
 " Colorscheme settings 
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
+
+" DoGe Documentation generation
 
 " Autoformmating via Google
 augroup autoformat_settings
