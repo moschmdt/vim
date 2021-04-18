@@ -55,6 +55,7 @@ vmap <C-k> <Plug>NERDCommenterToggle<CR>gv
 " NERDTree
 let NERDTreeQuitOnOpen = 1
 nmap <F2> :NERDTreeToggle<CR>
+let NERDSpaceDelims=1
 
 "vim-pydocstring
 let g:pydocstring_formatter = 'google'
