@@ -1,4 +1,3 @@
--- ENSURE PACKER AVAILABILITY
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -11,6 +10,7 @@ local ensure_packer = function()
 end
 
 local packer_bootstrap = ensure_packer()
+
 
 -- KEYBINDINGS
 vim.opt.number = true
@@ -54,6 +54,18 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  -- My plugins here
+  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+  use { "morhetz/gruvbox" }
+  vim.o.background = "dark"
+  vim.cmd([[colorscheme gruvbox]])
+
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
+
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
@@ -74,30 +86,10 @@ require('lspconfig')['rust_analyzer'].setup{
       ["rust-analyzer"] = {}
     }
 }
-
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  -- My plugins here
-  -- use 'foo1/bar1.nvim'
-  -- use 'foo2/bar2.nvim'
- 
-  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-
-  use { "morhetz/gruvbox" }
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-  use 'preservim/nerdcommenter'
-  use 'scrooloose/nerdtree'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
-
-  vim.o.background = "dark" -- or "light" for light mode
-  vim.cmd([[colorscheme gruvbox]])
-
-  require'lspconfig'.pyright.setup{}
-
 end)
 
