@@ -1,14 +1,7 @@
--- KEYBINDINGS
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.smartindent = true
-vim.opt.splitbelow = true              -- put new windows below current
-vim.opt.splitright = true               -- put new vertical splits to right
+-- LEADER 
+vim.g.mapleader = ','
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
-vim.opt.completeopt = "menu,menuone,noinsert"
+vim.keymap.set('n', '<leader>dd', ':Lexplore %:p:h<CR>')
+vim.keymap.set('n', '<leader>da', ':Lexplore<CR>')
 
 
