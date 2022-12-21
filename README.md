@@ -82,3 +82,13 @@ If you want to use the python language server, execute the following command:
 ```bash
 sudo npm i -g pyright
 ```
+
+## Custom keymaps
+
+
+Leader = ',' (Comma)
+
+| Combination | Description | 
+| --- | --- | 
+| <Leader>dd | Open netrw side pannel in directory of current file |
+| <Leader>da | Open netrw in cwd |
