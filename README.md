@@ -35,3 +35,14 @@ sudo update-alternatives --config editor
 ## Docker setup
 
 __TODO__
+
+
+## Custom keymaps
+
+
+Leader = ',' (Comma)
+
+| Combination | Description | 
+| --- | --- | 
+| <Leader>dd | Open netrw side pannel in directory of current file |
+| <Leader>da | Open netrw in cwd |
