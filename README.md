@@ -5,7 +5,7 @@
 ### Install node and upgrade node
 
 ```bash
-sudo apt-get install -y curl git && \
+sudo apt-get install -y curl git clangd && \
      sudo apt install -y nodejs npm && \
      sudo npm install -g n && \
      sudo n lts
