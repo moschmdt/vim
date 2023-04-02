@@ -11,3 +11,10 @@ vim.opt.expandtab = true
 
 vim.opt.completeopt = "menu,menuone,noinsert"
 
+vim.opt.scrolloff = 8
+
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+
+
