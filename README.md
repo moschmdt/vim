@@ -5,7 +5,7 @@
 ### Install node and upgrade node
 
 ```bash
-sudo apt-get install -y curl git clangd && \
+sudo apt-get install -y curl git wget xclip && \
      sudo apt install -y nodejs npm && \
      sudo npm install -g n && \
      sudo n lts
@@ -14,6 +14,23 @@ sudo apt-get install -y curl git clangd && \
 If using Docker, just replace sudo with RUN.
 
 ### Install neovim
+
+2023-04-02: The ppa channel only support neovim up to verison 0.7.2 and some plugins require at least version 0.8.x. 
+
+Choose one of the following installation methods. Preferably via the [GitHub Repo stable branch](#wget-installation-from-github-repo).
+
+
+#### Wget Installation from GitHub Repo
+
+Get the perbuild binaries from the [Neovim GitHub-Repo](https://github.com/neovim/neovim/releases/tag/stable).
+
+```bash
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb && \ 
+sudo apt-get install ./nvim-linux64.deb && \ 
+rm nvim-linux64.deb
+```
+
+#### PPA Installation
 
 ```bash
 sudo apt-get -y install software-properties-common && \
@@ -92,3 +109,7 @@ Leader = ',' (Comma)
 | --- | --- | 
 | <Leader>dd | Open netrw side pannel in directory of current file |
 | <Leader>da | Open netrw in cwd |
+
+Remaps are in the following files:
+- [remaps.lua](lua/setup/remaps.lua)
+- [Plugin specific remaps in after/plugin/](after/plugin/)
