@@ -50,5 +50,4 @@ require('rose-pine').setup({
 })
 
 -- Set colorscheme after options
-vim.cmd.colorscheme("rose-pine")
-vim.cmd([[set background=dark]])
+vim.cmd.colorscheme("gruvbox")
