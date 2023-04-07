@@ -5,7 +5,7 @@
 ### Install node and upgrade node
 
 ```bash
-sudo apt-get install -y curl git wget xclip && \
+sudo apt-get install -y curl git wget xclip ripgrep && \
      sudo apt install -y nodejs npm && \
      sudo npm install -g n && \
      sudo n lts
