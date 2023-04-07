@@ -1,7 +1,7 @@
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
+    lsp.default_keymaps({ buffer = bufnr })
 end)
 
 -- (Optional) Configure lua language server for neovim
@@ -10,6 +10,8 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 vim.keymap.set('n', '<leader>ca', function()
     vim.lsp.buf.code_action()
 end)
+
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 lsp.setup()
 
@@ -21,13 +23,13 @@ lsp.setup()
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
--- 
+--
 -- -- Use an on_attach function to only map the following keys
 -- -- after the language server attaches to the current buffer
 -- local on_attach = function(client, bufnr)
 --   -- Enable completion triggered by <c-x><c-o>
 --   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
--- 
+--
 --   -- Mappings.
 --   -- See `:help vim.lsp.*` for documentation on any of the below functions
 --   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -47,8 +49,8 @@ lsp.setup()
 --   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 --   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 -- end
--- 
--- 
+--
+--
 -- -- Setup buffer-local keymaps / options for LSP buffers
 -- local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- local lsp_attach = function(client, buf)
@@ -65,12 +67,12 @@ lsp.setup()
 -- 	-- "<leader>fs" vim.lsp.buf.document_symbol  "Document Symbols"
 -- 	-- "<leader>fS" vim.lsp.buf.workspace_symbol "Workspace Symbols"
 -- 	-- "<leader>gq" vim.lsp.buf.formatting_sync  "Format File"
--- 
+--
 -- 	vim.api.nvim_buf_set_option(buf, "formatexpr", "v:lua.vim.lsp.formatexpr()")
 -- 	vim.api.nvim_buf_set_option(buf, "omnifunc", "v:lua.vim.lsp.omnifunc")
 -- 	vim.api.nvim_buf_set_option(buf, "tagfunc", "v:lua.vim.lsp.tagfunc")
 -- end
--- 
+--
 -- -- Setup rust_analyzer via rust-tools.nvim
 -- require("rust-tools").setup({
 -- 	server = {
@@ -78,7 +80,7 @@ lsp.setup()
 -- 		on_attach = lsp_attach,
 -- 	}
 -- })
--- 
+--
 -- local lsp_flags = {
 --   -- This is the default in Nvim 0.7+
 --   debounce_text_changes = 150,
