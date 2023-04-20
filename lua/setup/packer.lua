@@ -81,6 +81,7 @@ return require('packer').startup(function(use)
     }
 
     use("rafamadriz/friendly-snippets")
+    use("lervag/vimtex")
 
     if packer_bootstrap then
         require("packer").sync()
