@@ -1,5 +1,5 @@
 -- auto install packer if not installed
-local ensure_packer = function()
+
     local fn = vim.fn
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
@@ -32,48 +32,36 @@ return require('packer').startup(function(use)
     use('wbthomason/packer.nvim')
 
     -- My plugins here
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+    use { 'tpope/vim-fugitive' }
+    use { 'tpope/vim-rhubarb' }
+    use { 'tpope/vim-sleuth' }
 
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'hrsh7th/cmp-path' },     -- Required
-            { 'hrsh7th/cmp-buffer' },   -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
-        }
-    }
+
+    -- This order is important!
+    use { 'williamboman/mason.nvim', run = ":MasonUpdate" }
+    use { 'williamboman/mason-lspconfig.nvim' }
+    use { 'neovim/nvim-lspconfig' }
+
+    -- Autocompletion
+    use { 'hrsh7th/nvim-cmp' }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'L3MON4D3/LuaSnip' }
     use { 'saadparwaiz1/cmp_luasnip' }
-    use('neovim/nvim-lspconfig') -- Configurations for Nvim LSP
 
     use("simrat39/rust-tools.nvim")
     use({ 'rose-pine/neovim', as = 'rose-pine' })
-    use { "ellisonleao/gruvbox.nvim" }
+    use({ "ellisonleao/gruvbox.nvim" })
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use {
-        "paopaol/cmp-doxygen",
-        requires = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-treesitter/nvim-treesitter-textobjects"
-        }
-    }
+    use { 'nvim-treesitter/nvim-treesitter',
+        dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
+        build = ':TSUpdate' }
 
     use("rafamadriz/friendly-snippets")
     use("lervag/vimtex")
@@ -82,3 +70,4 @@ return require('packer').startup(function(use)
         require("packer").sync()
     end
 end)
+

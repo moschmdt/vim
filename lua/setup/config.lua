@@ -9,7 +9,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.completeopt = "menu,menuone,noinsert"
+-- vim.opt.completeopt = "menuone, noselect"
 
 vim.opt.scrolloff = 8
 
@@ -28,3 +28,11 @@ vim.filetype.add({
         ['*.soar'] = 'soar',
     }
 })
+
+-- Case insensitive searching UNLESS /C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+
+-- Set highlight on search
+vim.o.hlsearch = false
